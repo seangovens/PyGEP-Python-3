@@ -83,7 +83,7 @@ class KarvaGene(object):
 
     def __repr__(self):
         '''@return: repr of gene alleles'''
-        gene_str = ''
+        genes = []
         for allele in self.alleles:
             # Differentiate between functions and terminals
             try:
@@ -95,9 +95,9 @@ class KarvaGene(object):
                     name = str(allele)
 
             # If the name is not one char, surround it with { }
-            gene_str += name if len(name) == 1 else '{%s}' % name
+            genes.append(name if len(name) == 1 else '{%s}' % name)
 
-        return gene_str
+        return ",".join(genes)
 
     
     def __len__(self):
